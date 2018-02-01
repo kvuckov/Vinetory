@@ -68,7 +68,8 @@ namespace Vinetory
             }
             List<Zastita> zastite = new List<Zastita>();
             baza.kon.Open();
-            string traziZastitu = "SELECT * FROM Zastita WHERE ZastitaSljedeca_zastita>= '"+DateTime.Today+"' ";
+            DateTime a = DateTime.Today;
+            string traziZastitu = "SELECT * FROM Zastita";
             sqlNaredba = new SQLiteCommand(traziZastitu, baza.kon);
             SQLiteDataReader r = sqlNaredba.ExecuteReader();
             while (r.Read())
@@ -87,7 +88,7 @@ namespace Vinetory
             int brojac = 0;            
             foreach(Zastita x in zastite)
             {
-                if (x.id_vin == X.vinograd.id_vin)
+                if (x.id_vin == X.vinograd.id_vin && x.datum_slijedece_zastite>=DateTime.Today)
                 {
                     brojac++;
                     if (brojac == 1)

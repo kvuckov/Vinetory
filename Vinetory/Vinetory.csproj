@@ -198,7 +198,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Vinetory.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -800,7 +800,7 @@ namespace Vinetory
             dt.Columns.Add("Opis_posla", typeof(string));
             dt.Columns.Add("Sorta", typeof(string));
             List<Odrzavanje> odrzavanja = new List<Odrzavanje>();
-            string traziOdrzavanje = "SELECT * FROM Odrzavanje WHERE OdrzavanjeDatum BETWEEN '" + predtraga_odPicker.Text + "' AND '" + pretraga_doPicker.Text + "'";
+            string traziOdrzavanje = "SELECT * FROM Odrzavanje";
             sqlNaredba = new SQLiteCommand(traziOdrzavanje, baza.kon);
             SQLiteDataReader r = sqlNaredba.ExecuteReader();
             while (r.Read())
@@ -818,7 +818,7 @@ namespace Vinetory
             {
                 foreach (Odrzavanje x in odrzavanja)
                 {
-                    if (x.id_sorte==z.id && x.id_vin == X.vinograd.id_vin)
+                    if (x.id_sorte==z.id && x.id_vin == X.vinograd.id_vin && x.datum >= Convert.ToDateTime(predtraga_odPicker.Text) && x.datum <= Convert.ToDateTime(pretraga_doPicker.Text)) 
                     {
                         dt.Rows.Add(x.datum, x.vrsta_posla, x.opis_posla, z.ime_sorte);
                     }

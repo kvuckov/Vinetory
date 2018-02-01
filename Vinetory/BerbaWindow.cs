@@ -79,7 +79,7 @@ namespace Vinetory
                     sorta6.Text = x.ime_sorte;
                 }
             }
-            int brojac = 0;
+            int brojac = 0,br=0;
             float broji_kg = 0;
             float b = 0;
             HashSet<DateTime> datumi = new HashSet<DateTime>();
@@ -87,14 +87,18 @@ namespace Vinetory
             {
                 foreach (Berba y in x.berbe)
                 {
+                    br++;
                     datumi.Add(y.datum);
                     broji_kg += y.obrano_kg;
-                    b = y.obrano_kg / 1000;
+                    if (x.id == 1)
+                    {
+                        b = y.obrano_kg / 1000;
+                    }
                 }
             }
             datumi.Count();
             brojac = datumi.Count;
-            float c = Kalkulator.ProsjecnaBerba(broji_kg, brojac);
+            float c = Kalkulator.ProsjecnaBerba(broji_kg, br);
             prosjecna_berba_label.Text = c.ToString();
             odrzane_berbe_label.Text = brojac.ToString();
             zadnja_berba_label.Text = b.ToString();
@@ -171,11 +175,31 @@ namespace Vinetory
                     y.id_kor = Convert.ToInt64(r["KorisnikID"]);
                     vinogradi.Add(y);
                 }
+                int brojac = 0, br = 0;
+                float broji_kg = 0;
+                float b = 0;
+                HashSet<DateTime> datumi = new HashSet<DateTime>();
                 if (sorta1.Checked == true)
                 {
                     foreach (Sorta x in X.vinograd.Sorte)
                     {
-                         if (x.id == 1)
+                        foreach (Berba y in x.berbe)
+                        {
+                            br++;
+                            datumi.Add(y.datum);
+                            broji_kg += y.obrano_kg;
+                            if (x.id == 1)
+                            {
+                                b = y.obrano_kg / 1000;
+                            }
+                        }
+                        datumi.Count();
+                        brojac = datumi.Count;
+                        float c = Kalkulator.ProsjecnaBerba(broji_kg, br);
+                        prosjecna_berba_label.Text = c.ToString();
+                        odrzane_berbe_label.Text = brojac.ToString();
+                        zadnja_berba_label.Text = b.ToString();
+                        if (x.id == 1)
                         {
                             x.berbe.Add(a);
                             MessageBox.Show("Vaša berba je spremljena", "Obavijest!",
@@ -200,7 +224,7 @@ namespace Vinetory
                             {
                                 dataGridView1.Rows.Add(red[0], red[1], red[2], red[3], red[4], red[5]);
                             }
-                        }
+                         }
 
                     }
                     
@@ -209,6 +233,22 @@ namespace Vinetory
                 {
                     foreach (Sorta x in X.vinograd.Sorte)
                     {
+                        foreach (Berba y in x.berbe)
+                        {
+                            br++;
+                            datumi.Add(y.datum);
+                            broji_kg += y.obrano_kg;
+                            if (x.id == 2)
+                            {
+                                b = y.obrano_kg / 1000;
+                            }
+                        }
+                        datumi.Count();
+                        brojac = datumi.Count;
+                        float c = Kalkulator.ProsjecnaBerba(broji_kg, br);
+                        prosjecna_berba_label.Text = c.ToString();
+                        odrzane_berbe_label.Text = brojac.ToString();
+                        zadnja_berba_label.Text = b.ToString();
                         if (x.id == 2)
                         {
                             x.berbe.Add(a);
@@ -241,6 +281,22 @@ namespace Vinetory
                 {
                     foreach (Sorta x in X.vinograd.Sorte)
                     {
+                        foreach (Berba y in x.berbe)
+                        {
+                            br++;
+                            datumi.Add(y.datum);
+                            broji_kg += y.obrano_kg;
+                            if (x.id == 1)
+                            {
+                                b = y.obrano_kg / 1000;
+                            }
+                        }
+                        datumi.Count();
+                        brojac = datumi.Count;
+                        float c = Kalkulator.ProsjecnaBerba(broji_kg, br);
+                        prosjecna_berba_label.Text = c.ToString();
+                        odrzane_berbe_label.Text = brojac.ToString();
+                        zadnja_berba_label.Text = b.ToString();
                         if (x.id == 3)
                         {
                             x.berbe.Add(a);
@@ -273,6 +329,22 @@ namespace Vinetory
                 {
                     foreach (Sorta x in X.vinograd.Sorte)
                     {
+                        foreach (Berba y in x.berbe)
+                        {
+                            br++;
+                            datumi.Add(y.datum);
+                            broji_kg += y.obrano_kg;
+                            if (x.id == 1)
+                            {
+                                b = y.obrano_kg / 1000;
+                            }
+                        }
+                        datumi.Count();
+                        brojac = datumi.Count;
+                        float c = Kalkulator.ProsjecnaBerba(broji_kg, br);
+                        prosjecna_berba_label.Text = c.ToString();
+                        odrzane_berbe_label.Text = brojac.ToString();
+                        zadnja_berba_label.Text = b.ToString();
                         if (x.id == 4)
                         {
                             x.berbe.Add(a);
@@ -305,6 +377,22 @@ namespace Vinetory
                 {
                     foreach (Sorta x in X.vinograd.Sorte)
                     {
+                        foreach (Berba y in x.berbe)
+                        {
+                            br++;
+                            datumi.Add(y.datum);
+                            broji_kg += y.obrano_kg;
+                            if (x.id == 1)
+                            {
+                                b = y.obrano_kg / 1000;
+                            }
+                        }
+                        datumi.Count();
+                        brojac = datumi.Count;
+                        float c = Kalkulator.ProsjecnaBerba(broji_kg, br);
+                        prosjecna_berba_label.Text = c.ToString();
+                        odrzane_berbe_label.Text = brojac.ToString();
+                        zadnja_berba_label.Text = b.ToString();
                         if (x.id == 5)
                         {
                             x.berbe.Add(a);
@@ -337,6 +425,22 @@ namespace Vinetory
                 {
                     foreach (Sorta x in X.vinograd.Sorte)
                     {
+                        foreach (Berba y in x.berbe)
+                        {
+                            br++;
+                            datumi.Add(y.datum);
+                            broji_kg += y.obrano_kg;
+                            if (x.id == 1)
+                            {
+                                b = y.obrano_kg / 1000;
+                            }
+                        }
+                        datumi.Count();
+                        brojac = datumi.Count;
+                        float c = Kalkulator.ProsjecnaBerba(broji_kg, br);
+                        prosjecna_berba_label.Text = c.ToString();
+                        odrzane_berbe_label.Text = brojac.ToString();
+                        zadnja_berba_label.Text = b.ToString();
                         if (x.id == 6)
                         {
                             x.berbe.Add(a);
@@ -368,22 +472,9 @@ namespace Vinetory
                 r.Close();
                 sqlNaredba.Dispose();
                 baza.kon.Close();
-                int brojac = 0;
-                float broji_kg = 0;
-                float b = 0;
-                foreach (Sorta x in X.vinograd.Sorte)
-                {
-                    foreach (Berba y in x.berbe)
-                    {
-                        brojac++;
-                        broji_kg += y.obrano_kg;
-                        b = y.obrano_kg / 1000;
-                    }
-                }
-                float c = Kalkulator.ProsjecnaBerba(broji_kg, brojac);
-                prosjecna_berba_label.Text = c.ToString();
-                odrzane_berbe_label.Text = brojac.ToString();
-                zadnja_berba_label.Text = b.ToString();
+               
+                
+                
             }
         }
 
@@ -941,7 +1032,7 @@ namespace Vinetory
             dt.Columns.Add("Obrana_povrsina", typeof(float));
             dt.Columns.Add("Sorta", typeof(string));
             List<Berba> berbe = new List<Berba>();
-            string traziBerbu = "SELECT * FROM Berba WHERE BerbaDatum BETWEEN '"+predtraga_odPicker.Text+"' AND '"+pretraga_doPicker.Text+"'";
+            string traziBerbu = "SELECT * FROM Berba";
             sqlNaredba = new SQLiteCommand(traziBerbu, baza.kon);
             SQLiteDataReader r = sqlNaredba.ExecuteReader();
             while (r.Read())
@@ -962,7 +1053,7 @@ namespace Vinetory
             {
                 foreach (Berba x in berbe)
                 {
-                    if (x.id_sorte == z.id && x.id_vin == X.vinograd.id_vin)
+                    if (x.id_sorte == z.id && x.id_vin == X.vinograd.id_vin && x.datum>=Convert.ToDateTime(predtraga_odPicker.Text) && x.datum<=Convert.ToDateTime(pretraga_doPicker.Text))
                     {
                         dt.Rows.Add(x.datum, x.broj_beraca, x.utroseni_budzet, x.sati_branja, x.obrano_kg, x.obrana_pov, z.ime_sorte);
                     }
